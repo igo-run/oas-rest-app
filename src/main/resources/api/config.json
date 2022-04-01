@@ -1,0 +1,16 @@
+{
+  "library": "spring-mvc",
+  "dateLibrary": "java8",
+  "hideGenerationTimestamp": true,
+  "modelPackage": "io.igorun.demo.openapi.oasrestapp.api.model",
+  "apiPackage": "io.igorun.demo.openapi.oasrestapp.api",
+  "invokerPackage": "io.igorun.demo.openapi.oasrestapp.api",
+  "serializableModel": true,
+  "useTags": true,
+  "useGzipFeature": true,
+  "hateoas": true,
+  "withXml": true,
+  "importMappings": {
+    "Link": "org.springframework.hateoas.Link"
+  }
+}
