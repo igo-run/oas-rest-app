@@ -57,6 +57,9 @@ components:
       description: Book
       type: object
       properties:
+        id:
+          description: Book ID
+          type: string
         title:
           description: Book title
           type: string
