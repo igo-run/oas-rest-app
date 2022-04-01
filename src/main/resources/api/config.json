@@ -10,6 +10,7 @@
   "useGzipFeature": true,
   "hateoas": true,
   "withXml": true,
+  "additionalModelTypeAnnotations": "; @lombok.Builder; @lombok.NoArgsConstructor; @lombok.AllArgsConstructor;",
   "importMappings": {
     "Link": "org.springframework.hateoas.Link"
   }
