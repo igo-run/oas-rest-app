@@ -1,0 +1,141 @@
+openapi: 3.0.3
+info:
+  title: Sample app with designed API by OpenApi
+  description: >
+    'Sample app with designed API by OpenApi'
+  termsOfService: https://github.com/igo-run/oas-rest-app/
+  contact:
+    email: igo.k8u@gmail.com
+  license:
+    name: MIT
+    url: https://github.com/igo-run/oas-rest-app/
+  version: 1.0.0
+externalDocs:
+  description: Document link you want to generate along with API.
+  url: https://github.com/igo-run/oas-rest-app
+servers:
+  - url: https://localhost:8080/v1
+tags:
+  - name: book
+    description: Everything about Book
+    externalDocs:
+      description: Find out more
+      url: https://github.com/igo-run/oas-rest-app
+  - name: author
+    description: Everything about Author
+    externalDocs:
+      description: Find out more
+      url: https://github.com/igo-run/oas-rest-app
+  - name: publisher
+    description: Everything about Publisher
+    externalDocs:
+      description: Find out more
+      url: https://github.com/igo-run/oas-rest-app
+components:
+  schemas:
+    Publisher:
+      description: Publisher
+      type: object
+      properties:
+        id:
+          description: Publisher ID
+          type: string
+        name:
+          description: Publisher name
+          type: string
+    Author:
+      description: Publisher
+      type: object
+      properties:
+        id:
+          description: Author ID
+          type: string
+        name:
+          description: Author name
+          type: string
+    Book:
+      description: Book
+      type: object
+      properties:
+        title:
+          description: Book title
+          type: string
+        author:
+          description: Author
+          $ref: '#/components/schemas/Author'
+        publisher:
+          description: Publisher
+          $ref: '#/components/schemas/Publisher'
+paths:
+  /api/v1/books/{bookId}:
+    get:
+      tags:
+        - book
+      summary: Returns book by id
+      description: Returns the book of given id
+      operationId: getBookById
+      parameters:
+        - name: bookId
+          in: path
+          description: Book identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        404:
+          description: Given book ID doesn't exist
+          content: {}
+  /api/v1/authors/{authorId}:
+    get:
+      tags:
+        - author
+      summary: Returns author by id
+      description: Returns the author of given id
+      operationId: getAuthorById
+      parameters:
+        - name: authorId
+          in: path
+          description: Author identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Author'
+        404:
+          description: Given author ID doesn't exist
+          content: {}
+  /api/v1/publishers/{publisherId}:
+    get:
+      tags:
+        - publisher
+      summary: Returns publisher by id
+      description: Returns the publisher of given id
+      operationId: getPublisherById
+      parameters:
+        - name: publisherId
+          in: path
+          description: Publisher identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Publisher'
+        404:
+          description: Given publisher ID doesn't exist
+          content: {}
